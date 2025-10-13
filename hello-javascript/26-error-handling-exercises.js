@@ -165,3 +165,4 @@ function retryOperation() {
         console.log("Max retries reached. Operation failed.")
     }
 }
+retryOperation(10)
