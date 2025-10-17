@@ -2,5 +2,16 @@
   "type": "module",
   "dependencies": {
     "chalk": "^5.6.2"
-  }
+  },
+  "name": "hello-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "00-helloworld.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios DOM curso JavaScript intermedio con un Ãºnico fichero</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .ejercicio {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .ejercicio h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            color: #444;
+        }
+
+        .resultado {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            background-color: white;
+            min-height: 50px;
+        }
+
+        .resaltado {
+            background-color: yellow;
+            padding: 10px;
+            border: 2px solid orange;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input {
+            padding: 8px;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<h1>Ejercicios ManipulaciÃ³n del DOM</h1>
+
+<div class="ejercicio">
+    <h2>Ejercicio 1: Crear elemento y cambiar contenido</h2>
+    <div id="ej1-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 2: Insertar imagen y cambiar URL</h2>
+    <div id="ej2-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 3: Agregar clase a un div</h2>
+    <div id="ej3-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 4: PÃ¡rrafo con texto azul</h2>
+    <div id="ej4-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 5: Agregar elementos a una lista</h2>
+    <div id="ej5-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 6: Eliminar pÃ¡rrafo</h2>
+    <div id="ej6-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 7: Reemplazar contenido</h2>
+    <div id="ej7-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 8: Alerta con mensaje</h2>
+    <div id="ej8-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 9: Input que actualiza un div</h2>
+    <div id="ej9-resultado" class="resultado"></div>
+</div>
+
+<div class="ejercicio">
+    <h2>Ejercicio 10: Cambiar color de fondo</h2>
+    <div id="ej10-resultado" class="resultado"></div>
+</div>
+
+<script>
+    // 1. Crea un elemento (por ejemplo, un <h1 id="title">) y cambia su contenido a "Â¡Hola Mundo!"" al cargar la pÃ¡gina
+    document.addEventListener("DOMContentLoaded", () => {
+        // Ejercicio 1
+        const container1 = document.getElementById("ej1-resultado")
+        const titleElement = document.createElement("h1")
+        titleElement.id = "title"
+        titleElement.textContent = "Â¡Hola Mundo!"
+        container1.appendChild(titleElement)
+
+        // Ejercicio 2
+        const container2 = document.getElementById("ej2-resultado")
+        const imageElement = document.createElement("img")
+        imageElement.id = "myImage"
+        imageElement.src = "https://picsum.photos/150"
+        imageElement.style.maxWidth = "100%"
+        container2.appendChild(imageElement)
+
+        setTimeout(() => {
+            imageElement.src = "https://picsum.photos/300"
+        }, 2000)
+
+        // Ejercicio 3
+        const container3 = document.getElementById("ej3-resultado")
+        const boxElement = document.createElement("div")
+        boxElement.id = "box"
+        boxElement.textContent = "Este es un div con clase resaltado"
+        container3.appendChild(boxElement)
+
+        boxElement.classList.add("resaltado")
+
+        // Ejercicio 4
+        const container4 = document.getElementById("ej4-resultado")
+        const paragraphElement = document.createElement("p")
+        paragraphElement.id = "paragraph"
+        paragraphElement.textContent = "Este pÃ¡rrafo tiene texto azul"
+        container4.appendChild(paragraphElement)
+
+        paragraphElement.style.color = "blue"
+
+        // Ejercicio 5
+        const container5 = document.getElementById("ej5-resultado")
+        const listElement = document.createElement("ul")
+        listElement.id = "list"
+        container5.appendChild(listElement)
+
+        const buttonElement = document.createElement("button")
+        buttonElement.textContent = "Agregar elemento"
+        container5.appendChild(buttonElement)
+
+        buttonElement.addEventListener("click", () => {
+            const newItem = document.createElement("li")
+            newItem.textContent = "Nuevo elemento"
+            listElement.appendChild(newItem)
+        })
+
+        // Ejercicio 6
+        const container6 = document.getElementById("ej6-resultado")
+        const deleteParagraph = document.createElement("p")
+        deleteParagraph.id = "deleteParagraph"
+        deleteParagraph.textContent = "Este pÃ¡rrafo se eliminarÃ¡ al hacer clic en el botÃ³n"
+        container6.appendChild(deleteParagraph)
+
+        const deleteButton = document.createElement("button")
+        deleteButton.textContent = "Eliminar pÃ¡rrafo"
+        container6.appendChild(deleteButton)
+
+        deleteButton.addEventListener("click", () => {
+            deleteParagraph.remove()
+        })
+
+        // Ejercicio 7
+        const container7 = document.getElementById("ej7-resultado")
+        const contentDiv = document.createElement("div")
+        contentDiv.id = "content"
+        contentDiv.textContent = "Contenido original que serÃ¡ reemplazado"
+        container7.appendChild(contentDiv)
+
+        setTimeout(() => {
+            contentDiv.innerHTML = "<h3>Nuevo Contenido</h3>"
+        }, 3000)
+
+        // Ejercicio 8
+        const container8 = document.getElementById("ej8-resultado")
+        const greetButton = document.createElement("button")
+        greetButton.id = "greetBtn"
+        greetButton.textContent = "Saludar"
+        container8.appendChild(greetButton)
+
+        greetButton.addEventListener("click", () => {
+            alert("Â¡Hola!")
+        })
+
+        // Ejercicio 9
+        const container9 = document.getElementById("ej9-resultado")
+        const inputElement = document.createElement("input")
+        inputElement.id = "textInput"
+        inputElement.type = "text"
+        inputElement.placeholder = "Escribe algo aquÃ­"
+        container9.appendChild(inputElement)
+
+        const resultDiv = document.createElement("div")
+        resultDiv.id = "result"
+        resultDiv.textContent = "El texto aparecerÃ¡ aquÃ­"
+        resultDiv.style.marginTop = "10px"
+        resultDiv.style.padding = "8px"
+        resultDiv.style.border = "1px solid #ddd"
+        container9.appendChild(resultDiv)
+
+        inputElement.addEventListener("input", () => {
+            resultDiv.textContent = inputElement.value
+        })
+
+        // Ejercicio 10
+        const container10 = document.getElementById("ej10-resultado")
+        const backgroundButton = document.createElement("button")
+        backgroundButton.id = "backgroundBtn"
+        backgroundButton.textContent = "Cambiar color de fondo"
+        container10.appendChild(backgroundButton)
+
+        backgroundButton.addEventListener("click", () => {
+            const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`
+            document.body.style.backgroundColor = randomColor
+        })
+    })
+</script>
+</body>
+</html>
