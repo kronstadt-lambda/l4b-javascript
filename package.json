@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "l4b-javascript",
+  "version": "1.0.0",
+  "description": "Welcome to the JavaScript Learning Path repository! This project contains a structured tutorial series to help you learn JavaScript from basics to advanced concepts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kronstadt-lambda/l4b-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kronstadt-lambda/l4b-javascript/issues"
+  },
+  "homepage": "https://github.com/kronstadt-lambda/l4b-javascript#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
