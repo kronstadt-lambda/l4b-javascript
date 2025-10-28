@@ -46,4 +46,33 @@ console.log("Annalyn can engage 'spy'?: ", canSpy(knightIsAwake, archerIsAwake, 
 console.log("Annalyn can engage 'signal prisoner'?: ", canSignalPrisoner(archerIsAwake, prisonerIsAwake));
 console.log("Annalyn can engage 'free prisoner'?: ", canFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent));
 
+// Exercise 4
+console.log("Exercise 4: Freelancer Rates");
 
+const hourlyRate = 89;
+const clientBudget = 2000;
+const workDays = 230;
+const monthlyDiscount = 0.42;
+
+export const calculateDailyRate = (hourlyRate) => hourlyRate * 8;
+
+export const getAffordableDays = (clientBudget, hourlyRate) =>
+    Math.floor(clientBudget / calculateDailyRate(hourlyRate));
+
+const getFullMonths = (workDays, daysInMonth) =>
+    Math.floor(workDays / daysInMonth);
+
+const getDiscountedMonthlyRate = (hourlyRate, daysInMonth, monthlyDiscount) =>
+    calculateDailyRate(hourlyRate) * daysInMonth * (1 - monthlyDiscount);
+
+export const calculateTotalPrice = (hourlyRate, workDays, monthlyDiscount) => {
+    const daysInMonth = 22;
+    const monthlyTotal = getFullMonths(workDays, daysInMonth) *
+                        getDiscountedMonthlyRate(hourlyRate, daysInMonth, monthlyDiscount);
+    const extraDaysTotal = (workDays % daysInMonth) * calculateDailyRate(hourlyRate);
+    return Math.ceil(monthlyTotal + extraDaysTotal);
+};
+
+console.log("Daily rate: ", calculateDailyRate(hourlyRate));
+console.log(`With a budget of $${clientBudget}, you can work for ${getAffordableDays(clientBudget, hourlyRate)} days.`);
+console.log(`The total price for a project with ${workDays} work days is $${calculateTotalPrice(hourlyRate, workDays, monthlyDiscount)}.`);
