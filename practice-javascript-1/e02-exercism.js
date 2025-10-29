@@ -76,3 +76,50 @@ export const calculateTotalPrice = (hourlyRate, workDays, monthlyDiscount) => {
 console.log("Daily rate: ", calculateDailyRate(hourlyRate));
 console.log(`With a budget of $${clientBudget}, you can work for ${getAffordableDays(clientBudget, hourlyRate)} days.`);
 console.log(`The total price for a project with ${workDays} work days is $${calculateTotalPrice(hourlyRate, workDays, monthlyDiscount)}.`);
+
+// Exercise 5
+console.log("Exercise 5: Poetry Club Door Policy");
+
+export function frontDoorResponse(line) {
+    const lineTrim = line.trim();
+    return lineTrim.trim().charAt(0);
+}
+
+export function frontDoorPassword(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+export function backDoorResponse(line) {
+    const lineTrim = line.trim();
+    return lineTrim.charAt(lineTrim.length - 1);
+}
+
+export function backDoorPassword(word) {
+    const politeWord = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    return politeWord + ", please";
+}
+
+const poemMultiLine =
+    `Stands so high
+    Huge hooves too
+    Impatiently waits for  
+    Reins and harness  
+    Eager to leave`;
+
+const passwordFrontDoor = frontDoorPassword(
+    poemMultiLine
+        .split("\n")
+        .map(line => frontDoorResponse(line))
+        .join("")
+);
+
+console.log("Front Door Password: ", passwordFrontDoor);
+
+const passwordBackDoor = backDoorPassword(
+    poemMultiLine
+        .split("\n")
+        .map(line => backDoorResponse(line))
+        .join("")
+);
+
+console.log("Back Door Password: ", passwordBackDoor);
