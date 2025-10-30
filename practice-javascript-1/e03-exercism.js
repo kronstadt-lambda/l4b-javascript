@@ -20,7 +20,7 @@ export function getItem(array, index) {
 console.log("Item at position ", position, ": ", getItem(randomItems, position));
 const replacementCard = 6;
 export function setItem(array, position, replacement) {
-    array.splice(position, 1, replacement);
+    array[position] = replacement;
     return array;
 }
 randomItems = setItem(randomItems, position, replacementCard);
