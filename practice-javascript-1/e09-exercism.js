@@ -1,5 +1,5 @@
-// Exercise 10
-console.log("Exercise 10: Mixed Juices");
+// Exercise 9
+console.log("Exercise 9: Mixed Juices");
 
 export function timeToMixJuice(name) {
     switch (name) {

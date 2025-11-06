@@ -1,5 +1,5 @@
-// Exercise 8
-console.log("Exercise 8: Vehicle Purchase");
+// Exercise 7
+console.log("Exercise 7: Vehicle Purchase");
 
 export function needsLicense(kind) {
     const k = String(kind).toLowerCase();
